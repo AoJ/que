@@ -1,0 +1,22 @@
+{
+	"name": "que",
+	"version": "0.1.0",
+	"description": "Interface to many worker queue backends.",
+	"author": "Vadim Demedes <sbioko@gmail.com>",
+	"main": "./index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vdemedes/que.git"
+	},
+	"dependencies": {
+		"node-gearman": "0.2.1",
+		"async": "0.1.22"
+	},
+	"devDependencies": {
+		"should": "*"
+	},
+	"engine": {
+		"node": ">= 0.4"
+	},
+	"license": "MIT"
+}
