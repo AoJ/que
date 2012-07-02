@@ -1,6 +1,6 @@
 {
 	"name": "que",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Interface to many worker queue backends.",
 	"author": "Vadim Demedes <sbioko@gmail.com>",
 	"main": "./index.js",

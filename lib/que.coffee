@@ -27,20 +27,17 @@ class Que # namespace
 			driver.disconnect -> do nextDriver
 		, ->
 			do callback if callback
-
-Que.registerDriver 'gearman', require('./drivers/gearman')
-
-class Que.Models
-	@workers: {}
 	
+	@workers: {}
+
 	@define: (params) -> # for non-coffee folks
 		worker = clone Que.Model
 		for param of params
 			worker::[param] = params[param] if params.hasOwnProperty param
-		
+
 		@setup worker
-		
-	
+
+
 	@setup: (worker) ->
 		worker.job = worker::job
 		worker.driver = Que.drivers[worker::driver]
@@ -51,9 +48,11 @@ class Que.Models
 				processor.response = response
 				processor.finished.call processor err if processor.finished
 				job.end JSON.stringify response
-		
+
 		@workers[worker::job] = worker
 		worker
+
+Que.registerDriver 'gearman', require('./drivers/gearman')
 
 class Que.Model
 	constructor: ->

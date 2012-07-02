@@ -15,7 +15,7 @@ describe 'Que', ->
 					process: (callback) ->
 						callback false, echo: @params.message.split('').reverse().join('')
 					
-				EchoReverseWorker = Que.Models.setup EchoReverseWorker
+				EchoReverseWorker = Que.setup EchoReverseWorker
 				
 				EchoReverseWorker.submit message: '2pac', (err, response) ->
 					response.echo.should.equal 'cap2'

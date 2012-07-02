@@ -60,7 +60,7 @@ class EchoReverseWorker extends Que.Model
 		result = @params.message.split('').reverse().join('')
 		callback false, echo: result
 
-EchoReverseWorker = Que.Models.setup EchoReverseWorker # this is required, notice **Models** here, not just **Model**
+EchoReverseWorker = Que.setup EchoReverseWorker # this is required, notice **Models** here, not just **Model**
 ```
 
 ### Making own drivers
