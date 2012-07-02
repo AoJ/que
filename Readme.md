@@ -52,7 +52,7 @@ EchoReverseWorker.submit({ message: '2pac' }, function(err, response){ // second
 You can define workers using CoffeeScript native class system:
 
 ```coffee-script
-class EchoReverseWorker extends Que.Worker
+class EchoReverseWorker extends Que.Model
 	job: 'echoReverse'
 	driver: 'gearman'
 	
@@ -60,7 +60,7 @@ class EchoReverseWorker extends Que.Worker
 		result = @params.message.split('').reverse().join('')
 		callback false, echo: result
 
-EchoReverseWorker = Que.Workers.setup EchoReverseWorker # this is required
+EchoReverseWorker = Que.Models.setup EchoReverseWorker # this is required, notice **Models** here, not just **Model**
 ```
 
 ### Making own drivers

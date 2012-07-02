@@ -30,11 +30,11 @@ class Que # namespace
 
 Que.registerDriver 'gearman', require('./drivers/gearman')
 
-class Que.Workers
+class Que.Models
 	@workers: {}
 	
 	@define: (params) -> # for non-coffee folks
-		worker = clone Que.Worker
+		worker = clone Que.Model
 		for param of params
 			worker::[param] = params[param] if params.hasOwnProperty param
 		
@@ -55,7 +55,7 @@ class Que.Workers
 		@workers[worker::job] = worker
 		worker
 
-class Que.Worker
+class Que.Model
 	constructor: ->
 	
 	@submit: (params, callback) ->
